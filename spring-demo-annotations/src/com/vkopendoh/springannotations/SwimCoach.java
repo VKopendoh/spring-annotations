@@ -1,5 +1,8 @@
 package com.vkopendoh.springannotations;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +19,23 @@ public class SwimCoach implements Coach {
 	@Autowired
 	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
+	
+	public SwimCoach() {
+		System.out.println(">> SwimCoach inside my default constructor");
+	}
+	
+	//define my init method
+	@PostConstruct
+	 public void doStartup() {
+		 System.out.println(">> SwimCoach: inside doStartup");
+	 }
+	 
+	 //define my destroy method
+	@PreDestroy
+	public void doCleanup() {
+		System.out.println(">> SwimCoach inside my doCleanup()");
+	}
+	
 	
 	@Override
 	public String getDailyWorkout() {		

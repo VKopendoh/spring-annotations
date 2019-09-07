@@ -16,6 +16,7 @@ public class PropertiesFortuneService implements FortuneService {
 	
 	@PostConstruct
 	private void setupData(){
+		System.out.println(">> PropertiesFortuneService: starting PostConstruct callback method, we init data here...");
 		this.fortunes = fortunesStr.split(":");
 	}
 		

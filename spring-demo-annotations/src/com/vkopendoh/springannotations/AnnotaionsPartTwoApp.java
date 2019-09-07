@@ -17,6 +17,8 @@ public class AnnotaionsPartTwoApp {
 		 System.out.println(propCoach.getDailyWorkout());
 		 System.out.println(propCoach.getDailyFortune());
 		 
+		 
+		 
 		
 		context.close();
 	}

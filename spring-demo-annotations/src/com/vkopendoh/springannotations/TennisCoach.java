@@ -2,9 +2,11 @@ package com.vkopendoh.springannotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class TennisCoach implements Coach {
 	
 	private FortuneService fortuneService;
@@ -42,7 +44,8 @@ public class TennisCoach implements Coach {
 	
 	 @Autowired 
 	 public TennisCoach(@Qualifier("myFortune") FortuneService theFortuneService) {
-	 this.fortuneService = theFortuneService; }
+		 System.out.println(">> TennisCoach: inside fortune ijecion constructor");
+		 this.fortuneService = theFortuneService; }
 	 
 	
 	
