@@ -1,9 +1,16 @@
 package com.vkopendoh.springannotations;
 
+import org.springframework.beans.factory.annotation.Value;
 
 public class SoccerCoach implements Coach {
 	
 	private FortuneService fortuneService;
+	
+	@Value("${foo.email}")
+	private String email;
+	
+	@Value("${foo.team}")
+	private String team;
 	
 	public SoccerCoach(FortuneService theFortuneService) {
 		this.fortuneService = theFortuneService;
@@ -19,4 +26,11 @@ public class SoccerCoach implements Coach {
 		return fortuneService.getFortune();
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public String getTeam() {
+		return team;
+	}
 }
