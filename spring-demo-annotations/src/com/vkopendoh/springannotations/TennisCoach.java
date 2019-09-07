@@ -7,10 +7,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 	
-	//Spring use Reflections to inject a fields
-	@Autowired
-	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
+	//Spring use Reflections to inject a fields
+	/*
+	 * @Autowired
+	 * 
+	 * @Qualifier("randomFortuneService") 
+	 * private FortuneService fortuneService;
+	 */
 	
 	//define a default constructor
 	public TennisCoach() {
@@ -35,11 +39,11 @@ public class TennisCoach implements Coach {
 	 * this.fortuneService = theFortuneService; }
 	 */
 	
-	/*
-	 * @Autowired 
-	 * public TennisCoach(FortuneService theFortuneService) {
-	 * this.fortuneService = theFortuneService; }
-	 */
+	
+	 @Autowired 
+	 public TennisCoach(@Qualifier("myFortune") FortuneService theFortuneService) {
+	 this.fortuneService = theFortuneService; }
+	 
 	
 	
 	

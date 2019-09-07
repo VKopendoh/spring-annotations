@@ -2,7 +2,7 @@ package com.vkopendoh.springannotations;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("myFortune")
 public class HappyFortuneService implements FortuneService {
 
 	@Override
